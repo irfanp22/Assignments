@@ -137,10 +137,10 @@ class _TaskFormState extends State<TaskForm> {
           if (validate) {
             if (!_isLoading) {
               if (widget.assignment != null) {
-                //kondisi update produk
+                //kondisi update Assignment
                 ubah();
               } else {
-                //kondisi tambah produk
+                //kondisi tambah Assignment
                 simpan();
               }
             }
@@ -152,11 +152,11 @@ class _TaskFormState extends State<TaskForm> {
     setState(() {
       _isLoading = true;
     });
-    Assignment createProduk = Assignment(id: null);
-    createProduk.title = _titleTextboxController.text;
-    createProduk.description = _descriptionTextboxController.text;
-    createProduk.deadline = _deadlineTextboxController.text;
-    Bloc.addAssignment(assignment: createProduk).then((value) {
+    Assignment createAssignment = Assignment(id: null);
+    createAssignment.title = _titleTextboxController.text;
+    createAssignment.description = _descriptionTextboxController.text;
+    createAssignment.deadline = _deadlineTextboxController.text;
+    Bloc.addAssignment(assignment: createAssignment).then((value) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => const TaskPage()));
     }, onError: (error) {
@@ -175,11 +175,11 @@ class _TaskFormState extends State<TaskForm> {
     setState(() {
       _isLoading = true;
     });
-    Assignment updateProduk = Assignment(id: widget.assignment!.id!);
-    updateProduk.title = _titleTextboxController.text;
-    updateProduk.description = _descriptionTextboxController.text;
-    updateProduk.deadline = _deadlineTextboxController.text;
-    Bloc.updateAssignment(assignment: updateProduk).then((value) {
+    Assignment updateAssignment = Assignment(id: widget.assignment!.id!);
+    updateAssignment.title = _titleTextboxController.text;
+    updateAssignment.description = _descriptionTextboxController.text;
+    updateAssignment.deadline = _deadlineTextboxController.text;
+    Bloc.updateAssignment(assignment: updateAssignment).then((value) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => const TaskPage()));
     }, onError: (error) {
